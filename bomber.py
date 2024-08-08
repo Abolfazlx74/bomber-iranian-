@@ -5,20 +5,20 @@ heads = [
             'Accept': '*/*'
         },
         {
-        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0",
-        'Accept': '*/*'
+            "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0",
+            'Accept': '*/*'
         },
         {
-        "User-Agent": "Mozilla/5.0 (X11; Debian; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0",
-        'Accept': '*/*'
+            "User-Agent": "Mozilla/5.0 (X11; Debian; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0",
+            'Accept': '*/*'
         },
         {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 3.1; rv:76.0) Gecko/20100101 Firefox/69.0',
-        'Accept': '*/*'
+            'User-Agent': 'Mozilla/5.0 (Windows NT 3.1; rv:76.0) Gecko/20100101 Firefox/69.0',
+            'Accept': '*/*'
         },
         {
-        "User-Agent": "Mozilla/5.0 (X11; Debian; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/76.0",
-        'Accept': '*/*'
+            "User-Agent": "Mozilla/5.0 (X11; Debian; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/76.0",
+            'Accept': '*/*'
         },
 ]
 os.system('cls') 
@@ -51,8 +51,6 @@ The number must be like this : 9123456789
 Enter the phone number (10 digits): """)
 
 number, num98, num0 = checkNumber(notCheckedNumber)
-# print(f"Number with +98 prefix: {num98}")
-# print(f"Number with 0 prefix: {num0}")
 
 smsApis = {
     'c.ketab': {
@@ -202,7 +200,6 @@ smsApis = {
         'status': True
     }
 }
-# ----------------------------------------------------
 callApis = {
     'banimod': {
         'url': 'https://mobapi.banimode.com/api/v2/auth/request',
@@ -258,7 +255,7 @@ if 0<op < 3:
                     time.sleep(10)
                 if not checkResponse(postReq.status_code) and req['status'] == True :
                     req['status'] = False  
-                    print(webName,postReq.status_code,"need to check")
+                    print(webName,postReq.status_code,"needs to check")
             except:
                 req['status'] = False
         time.sleep(10)
