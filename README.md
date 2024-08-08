@@ -5,6 +5,7 @@ This project is an SMS and call bomber application . It allows users to send mul
 ```bash
 git clone https://github.com/Abolfazlx74/bomber-iranian-.git
 
-py bomber.py```
+py bomber.py
+```
 
 Enter the number and make some fun!
